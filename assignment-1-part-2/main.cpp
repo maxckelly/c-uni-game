@@ -10,9 +10,11 @@
 #include "mainMenu.hpp"
 #include "gameScreen.hpp"
 
+// Defines the lenght of the screen. Note this is from ncurses
 #define WORLD_WIDTH 100
 #define WORLD_HEIGHT 50
 
+// Creates a new window over the console using ncurses to allow drawing
 WINDOW *mr_quickie;
 
 int main(int argc, const char * argv[]) {
@@ -26,29 +28,35 @@ int main(int argc, const char * argv[]) {
     
     mr_quickie = newwin(WORLD_HEIGHT, WORLD_WIDTH, offsety, offsetx);
     
-    CMainMenu newMenu;
+    CMainMenu newMenu; // Creates a new menu class
 
+    // While the user hasn't pressed q keep looping through below
     while (newMenu.getUserInput() != 'q') {
+        // If user presses 'p' start game
         if (newMenu.getUserInput() == 'p') {
-            clear();
+            clear(); // Clears screen
             refresh();
-            CGame newGame;
+            CGame newGame; // Creates new game class
             char ch;
             int i;
-            newGame.createGameScreen();
+            newGame.createGameScreen(); // Draws game screen
             
+            // While true loop through game
             while (true) {
-                ch = getch();
+                newGame.setUserInput();
+                // If gameOver = true then stop game
                 if (newGame.getGameStatus() == 1) {
-                    clear();
+                    clear(); // clear screen
                     refresh();
-                    newGame.displayResults();
-                    newMenu.setUserInput(newMenu.showMenu());
-                    newGame = CGame();
+                    newGame.displayResults(); // Display results on screen
+                    move(10, 0);
+                    refresh();
+                    newMenu.setUserInput(newMenu.showMenu()); // Show option menu to user
+                    newGame = CGame(); // reset game to original state
                     break;
                 };
                  
-                if (ch == ' ') {
+                if (newGame.getUserInput() == ' ') {
                     i = 0;
                     
                     while (i < 12) {
@@ -62,16 +70,16 @@ int main(int argc, const char * argv[]) {
                         newGame.drawBarrier();
                         i--;
                     }
-                } else if (newMenu.getUserInput() == 'p' || newMenu.getUserInput() == 'P') {
-                    getch();
-                } else if (ch == 'q') {
+                } else if (newGame.getUserInput() == 'q') {
                     break;
                 }
             }
+        // If user presses 'i' then show instruction screen
         } else if (newMenu.getUserInput() == 'i') {
             clear();
             refresh();
             newMenu.setUserInput(newMenu.showInstructions());
+        // If user presses 'm' return back to main menu
         } else if (newMenu.getUserInput() == 'm') {
             clear();
             refresh();

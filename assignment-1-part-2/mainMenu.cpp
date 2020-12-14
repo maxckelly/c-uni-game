@@ -16,6 +16,7 @@
  addstr is a better way to print text to terminal with ncurses
 */
 
+// The below shows the main menu
 char CMainMenu::showMenu() {
     
     // Welcome text
@@ -35,14 +36,17 @@ char CMainMenu::showMenu() {
     return getch();
 };
 
+// The below gets the userInput and sets it in class
 void CMainMenu::setUserInput(char userInput) {
     cUserInput = userInput;
 };
 
+// The below returns the user input
 char CMainMenu::getUserInput() {
     return cUserInput;
 };
 
+// The blow shows the instruction screen
 char CMainMenu::showInstructions() {
     // Welcome text
     addstr("==================");
@@ -50,14 +54,14 @@ char CMainMenu::showInstructions() {
     addstr("==================\n");
     refresh();
     
-    // User action options
+    // General game instructions
     addstr("Once the game has started press the space bar to drop your character \n");
     addstr("Then continue to press the spacebar to move your character forward \n");
     addstr("The aim is to jump over the barriers \n");
     addstr("When your score reaches 12 you win the game \n");
     refresh();
     
-    // User action options
+    // User navigation options
     addstr("Press p: Start game \n");
     addstr("Press m: To return to main menu \n");
     addstr("Press q: Quiet game \n");
