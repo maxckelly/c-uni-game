@@ -10,7 +10,7 @@
 		585065FF257616D000AE080B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 585065FE257616D000AE080B /* main.cpp */; };
 		585066082576178800AE080B /* mainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 585066062576178800AE080B /* mainMenu.cpp */; };
 		5850660D25762FD800AE080B /* libncurses.5.4.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5850660B25762FC900AE080B /* libncurses.5.4.tbd */; };
-		5887C6E8257B12300087B15D /* helperFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5887C6E6257B12300087B15D /* helperFunctions.cpp */; };
+		587E8416258C284A00FDF25F /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 587E8414258C284A00FDF25F /* helpers.cpp */; };
 		58BD415F257F281300D261BD /* gameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58BD415D257F281300D261BD /* gameScreen.cpp */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +32,8 @@
 		585066062576178800AE080B /* mainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainMenu.cpp; sourceTree = "<group>"; };
 		585066072576178800AE080B /* mainMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mainMenu.hpp; sourceTree = "<group>"; };
 		5850660B25762FC900AE080B /* libncurses.5.4.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libncurses.5.4.tbd; path = usr/lib/libncurses.5.4.tbd; sourceTree = SDKROOT; };
-		5887C6E6257B12300087B15D /* helperFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helperFunctions.cpp; sourceTree = "<group>"; };
-		5887C6E7257B12300087B15D /* helperFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helperFunctions.hpp; sourceTree = "<group>"; };
+		587E8414258C284A00FDF25F /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		587E8415258C284A00FDF25F /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		58BD415D257F281300D261BD /* gameScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameScreen.cpp; sourceTree = "<group>"; };
 		58BD415E257F281300D261BD /* gameScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = gameScreen.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +70,7 @@
 		585065FD257616D000AE080B /* assignment-1-part-2 */ = {
 			isa = PBXGroup;
 			children = (
-				5887C6E5257B121A0087B15D /* helpers */,
+				587E8413258C283A00FDF25F /* helpers */,
 				585065FE257616D000AE080B /* main.cpp */,
 				585066062576178800AE080B /* mainMenu.cpp */,
 				585066072576178800AE080B /* mainMenu.hpp */,
@@ -88,11 +88,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5887C6E5257B121A0087B15D /* helpers */ = {
+		587E8413258C283A00FDF25F /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5887C6E6257B12300087B15D /* helperFunctions.cpp */,
-				5887C6E7257B12300087B15D /* helperFunctions.hpp */,
+				587E8414258C284A00FDF25F /* helpers.cpp */,
+				587E8415258C284A00FDF25F /* helpers.hpp */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				585065FF257616D000AE080B /* main.cpp in Sources */,
-				5887C6E8257B12300087B15D /* helperFunctions.cpp in Sources */,
 				585066082576178800AE080B /* mainMenu.cpp in Sources */,
 				58BD415F257F281300D261BD /* gameScreen.cpp in Sources */,
+				587E8416258C284A00FDF25F /* helpers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,10 +14,11 @@ class CMainMenu {
     public:
         char showMenu();
         char showInstructions();
+        char showPastResults();
         char getUserInput();
         void setUserInput(char cUserInput);
     private:
-        char cUserInput = 'm';
+        char cUserInput = 'm';  // defaults to m to show menu screen
 };
 
 #endif /* mainMenu_hpp */

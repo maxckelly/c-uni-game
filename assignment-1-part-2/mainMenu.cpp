@@ -7,7 +7,9 @@
 
 #include "mainMenu.hpp"
 #include "gameScreen.hpp"
+#include "./helpers/helpers.hpp"
 #include <iostream>
+#include <string>
 #include <ncurses.h>
 
 /*
@@ -19,15 +21,17 @@
 // The below shows the main menu
 char CMainMenu::showMenu() {
     
-    // Welcome text
-    addstr("======================");
-    addstr("|    MR QUICKIE      |");
-    addstr("======================\n");
+    // Header
+    addstr("=========================");
+    addstr("| WELCOME TO MR QUICKIE |");
+    addstr("=========================\n");
+    refresh();
     refresh();
     
     // User action options
     addstr("Press p: Start game\n");
     addstr("Press i: How to play\n");
+    addstr("Press r: To display past results\n");
     addstr("Press q: Quiet game\n");
     addstr("Please select one of the below options: ");
     refresh();
@@ -36,21 +40,11 @@ char CMainMenu::showMenu() {
     return getch();
 };
 
-// The below gets the userInput and sets it in class
-void CMainMenu::setUserInput(char userInput) {
-    cUserInput = userInput;
-};
-
-// The below returns the user input
-char CMainMenu::getUserInput() {
-    return cUserInput;
-};
-
 // The blow shows the instruction screen
 char CMainMenu::showInstructions() {
-    // Welcome text
+    // Header
     addstr("==================");
-    addstr("|    INSTRUCTIONS |");
+    addstr("|  INSTRUCTIONS  |");
     addstr("==================\n");
     refresh();
     
@@ -69,4 +63,37 @@ char CMainMenu::showInstructions() {
     refresh();
     
     return getch();
+};
+
+// Displays results to the
+char CMainMenu::showPastResults() {
+    // Header
+    addstr("==================");
+    addstr("|  PAST RESULTS  |");
+    addstr("==================\n");
+    refresh();
+    
+    // Results screen
+    readScoreFromFile("scores.txt");
+        
+    // User navigation options
+    move(3, 0);
+    refresh();
+    addstr("Press p: Start game \n");
+    addstr("Press m: To return to main menu \n");
+    addstr("Press q: Quiet game \n");
+    addstr("Please select one of the below options: ");
+    refresh();
+    
+    return getch();
+};
+
+// The below gets the userInput and sets it in class
+void CMainMenu::setUserInput(char userInput) {
+    cUserInput = userInput;
+};
+
+// The below returns the user input
+char CMainMenu::getUserInput() {
+    return cUserInput;
 };

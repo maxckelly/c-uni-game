@@ -104,10 +104,17 @@ int CGame::getBarrierX() {
     return iBarrierX;
 };
 
+// Gets user input when playing game
 char CGame::getUserInput() {
     return cUserInput;
 };
 
+// Each time user presses a key we set user input
 void CGame::setUserInput() {
     cUserInput = getch();
+};
+
+// Returns just the game score
+int CGame::getGameScore() {
+    return iScore;
 };

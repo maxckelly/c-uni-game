@@ -22,6 +22,7 @@ class CGame {
         bool getGameStatus();
         char getUserInput();
         int getBarrierX();
+        int getGameScore();
         void setBarrierX(int num);
     private:
         bool bGameOver = false; // Controls if the user has lost or game is still running

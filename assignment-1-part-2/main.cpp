@@ -6,9 +6,11 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <ncurses.h>
 #include "mainMenu.hpp"
 #include "gameScreen.hpp"
+#include "./helpers/helpers.hpp"
 
 // Defines the lenght of the screen. Note this is from ncurses
 #define WORLD_WIDTH 100
@@ -17,14 +19,13 @@
 // Creates a new window over the console using ncurses to allow drawing
 WINDOW *mr_quickie;
 
-int main(int argc, const char * argv[]) {
-    
+int main() {
     initscr();
     int offsetx, offsety;
     refresh();
     
-    offsetx = (COLS - WORLD_WIDTH) / 2;
-    offsety = (LINES - WORLD_HEIGHT) / 2;
+    offsetx = (COLS - WORLD_WIDTH) / 2; // draws the width of the screen
+    offsety = (LINES - WORLD_HEIGHT) / 2; // draws the height of the screen
     
     mr_quickie = newwin(WORLD_HEIGHT, WORLD_WIDTH, offsety, offsetx);
     
@@ -37,9 +38,8 @@ int main(int argc, const char * argv[]) {
             clear(); // Clears screen
             refresh();
             CGame newGame; // Creates new game class
-            char ch;
             int i;
-            newGame.createGameScreen(); // Draws game screen
+            newGame.createGameScreen(); // Draws game screenw
             
             // While true loop through game
             while (true) {
@@ -48,6 +48,9 @@ int main(int argc, const char * argv[]) {
                 if (newGame.getGameStatus() == 1) {
                     clear(); // clear screen
                     refresh();
+                    
+                    saveScoreToFile(newGame.getGameScore(), "scores.txt");
+                    
                     newGame.displayResults(); // Display results on screen
                     move(10, 0);
                     refresh();
@@ -84,8 +87,12 @@ int main(int argc, const char * argv[]) {
             clear();
             refresh();
             newMenu.setUserInput(newMenu.showMenu());
+        } else if (newMenu.getUserInput() == 'r') {
+            clear();
+            refresh();
+            newMenu.setUserInput(newMenu.showPastResults());
         }
-    }
-
+    };
+    
     return 0;
 };
