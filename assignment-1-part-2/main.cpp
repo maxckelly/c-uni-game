@@ -91,6 +91,10 @@ int main() {
             clear();
             refresh();
             newMenu.setUserInput(newMenu.showPastResults());
+        } else {
+            clear();
+            refresh();
+            newMenu.setUserInput(newMenu.showMenu());
         }
     };
     

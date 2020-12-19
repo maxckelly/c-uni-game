@@ -40,5 +40,7 @@ void readScoreFromFile(std::string fileName) {
             std::cout << line << " : ";
         }
         file.close();
+    } else {
+        return;
     }
 };
